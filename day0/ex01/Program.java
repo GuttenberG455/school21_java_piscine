@@ -31,6 +31,7 @@ public class Program {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         if (number <= 1) {
+			scanner.close();
             System.exit(putIllegalArgument());
         } else if (number == 2) {
             System.out.println(true + " " + 1);
@@ -46,5 +47,6 @@ public class Program {
             }
             System.out.println(true + " " + (i - 1));
         }
+		scanner.close();
     }
 }

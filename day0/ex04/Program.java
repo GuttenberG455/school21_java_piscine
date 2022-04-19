@@ -44,7 +44,7 @@ public class Program {
         }
         int[] ratioList = new int[i];
         for (i = 0; i < ratioList.length; i++) {
-            ratioList[i] = (int)(((float)charCount[charTopList[i]] / charCount[charTopList[0]]) * 10);
+            ratioList[i] = (int)((charCount[charTopList[i]] * 10 / charCount[charTopList[0]]));
         }
         return (ratioList);
     }
@@ -60,6 +60,9 @@ public class Program {
                 } else {
                     break;
                 }
+            }
+            if (i == 0) {
+                break;
             }
             System.out.println();
             for (int j = 0; j < curInd; j++) {
@@ -87,27 +90,15 @@ public class Program {
         int[] ratioList;
 
         String input = scanner.nextLine();
+        if (Objects.equals(input, "") || input.length() > 999) {
+			scanner.close();
+            System.exit(0);
+        }
         charCount = getCharCount(input);
         charTopList = getTopList(charCount);
         charCount = getCharCount(input);
         ratioList = getRatioList(charTopList, charCount);
         printTopList(charTopList, charCount, ratioList);
+		scanner.close();
     }
 }
-
-/*
-
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSSSSSSSSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDWEWWKFKKDKKDSKAKLSLDKSKALLLLLLLLLLRTRTETWTWWWWWWWWWWOOOOOOO42
-
-F  4 times 10
-Q  4 times 10
-B  2 times 5
-E  2 times 5
-R  2 times 5
-S  2 times 5
-V  2 times 5
-X  2 times 5
-G  1 times 2
-
-
- */

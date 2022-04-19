@@ -24,7 +24,10 @@ public class Program {
 
     private static boolean isPrime(int number) {
 
-        if (number == 2) {
+		if (number <= 1) {
+			return (false);
+		}
+        else if (number == 2) {
             return (true);
         }
         else {
@@ -59,5 +62,6 @@ public class Program {
             if (isPrime(sumDigits))
                 reqCount++;
         }
+		scanner.close();
     }
 }
