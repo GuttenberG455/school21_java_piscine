@@ -90,7 +90,7 @@ public class Program {
         int[] ratioList;
 
         String input = scanner.nextLine();
-        if (Objects.equals(input, "") || input.length() > 999) {
+        if (input.equals("") || input.length() > 999) {
 			scanner.close();
             System.exit(0);
         }
