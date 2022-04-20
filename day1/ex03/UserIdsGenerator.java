@@ -1,3 +1,5 @@
+package ex03;
+
 public final class UserIdsGenerator {
     private static final UserIdsGenerator userIdsGenerator = new UserIdsGenerator();
 

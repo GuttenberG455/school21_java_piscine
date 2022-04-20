@@ -1,3 +1,5 @@
+package ex02;
+
 public class UsersArrayList implements UsersList {
     private Integer capacity = DEFAULT_SIZE;
     private Integer size = 0;

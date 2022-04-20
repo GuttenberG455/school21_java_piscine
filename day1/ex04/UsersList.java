@@ -1,3 +1,5 @@
+package ex04;
+
 public interface UsersList {
     static Integer DEFAULT_SIZE = 10;
 

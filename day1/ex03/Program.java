@@ -1,3 +1,5 @@
+package ex03;
+
 import java.util.UUID;
 
 public class Program {
@@ -33,5 +35,6 @@ public class Program {
         for (Transaction t : transactions.toArray()) {
             System.out.println(t.toString());
         }
+        transactions.removeTransactionById(UUID.randomUUID());
     }
 }

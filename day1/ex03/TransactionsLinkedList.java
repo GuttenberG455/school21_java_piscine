@@ -1,3 +1,5 @@
+package ex03;
+
 import java.util.UUID;
 
 public class TransactionsLinkedList implements TransactionsList {
@@ -14,11 +16,10 @@ public class TransactionsLinkedList implements TransactionsList {
 
     @Override
     public void addTransaction(Transaction transaction) {
-        TransactionNode tmp = start;
-        while (tmp.getNext() != end) {
-            tmp = tmp.getNext();
-        }
-        tmp.setNext(new TransactionNode(transaction, end, tmp));
+        TransactionNode lastNode = end.getPrev();
+        TransactionNode tmp = new TransactionNode(transaction, end, lastNode);
+        lastNode.setNext(tmp);
+        end.setPrev(tmp);
         this.length++;
     }
 

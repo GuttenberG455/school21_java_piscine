@@ -1,3 +1,5 @@
+package ex04;
+
 public class User {
     private final Integer identifier;
     private String name;

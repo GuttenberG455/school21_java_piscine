@@ -1,3 +1,5 @@
+package ex04;
+
 import java.util.UUID;
 
 public class TransactionsLinkedList implements TransactionsList {
@@ -54,6 +56,28 @@ public class TransactionsLinkedList implements TransactionsList {
             }
         }
         return (transactions);
+    }
+
+    public Transaction getTransactionByID(UUID identifier) throws TransactionNotFoundException {
+        TransactionNode tmp = start.getNext();
+        while (tmp != end) {
+            if (tmp.getData().getIdentifier() == identifier) {
+                return tmp.getData();
+            }
+            tmp = tmp.getNext();
+        }
+        throw new TransactionNotFoundException();
+    }
+
+    public boolean isInTransList(UUID identifier) {
+        TransactionNode tmp = start.getNext();
+        while (tmp != end) {
+            if (tmp.getData().getIdentifier() == identifier) {
+                return true;
+            }
+            tmp = tmp.getNext();
+        }
+        return false;
     }
 
     public Integer getLength() {

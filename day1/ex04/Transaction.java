@@ -1,3 +1,5 @@
+package ex04;
+
 import java.util.UUID;
 
 public class Transaction {
