@@ -4,10 +4,13 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Message {
+
     private long id;
     private User author;
     private Chatroom chatroom;
     private String text;
+
+
     private LocalDateTime dateTime;
 
     public Message(long id, User author, Chatroom chatroom, String text, LocalDateTime messageDateTime) {
@@ -48,6 +51,10 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
     @Override

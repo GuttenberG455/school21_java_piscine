@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Message {
-
     private long id;
     private User author;
     private Chatroom chatroom;
