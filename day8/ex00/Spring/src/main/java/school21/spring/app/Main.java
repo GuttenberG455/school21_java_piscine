@@ -18,12 +18,12 @@ public class Main {
         PreProcessor preProcessor = new PreProcessorToUpperImpl();
         Renderer renderer = new RendererErrImpl(preProcessor);
         PrinterWithPrefixImpl printer = new PrinterWithPrefixImpl(renderer);
-        printer . setPrefix ("Prefix ");
-        printer . print ("Hello!") ;
+        printer.setPrefix("Prefix ");
+        printer.print("Hello!");
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
         Printer prefixPrinter1 = context.getBean("printerWithPrefix", Printer.class);
-        prefixPrinter1.print ("Hello!") ;
+        prefixPrinter1.print("Hello!") ;
 
         PreProcessor preProcessor1 = new PreProcessorToLowerImpl();
         Renderer rendererErr = new RendererErrImpl(preProcessor1);
