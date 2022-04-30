@@ -22,5 +22,6 @@ public class Main {
         JCommander.newBuilder().addObject(parser).build().parse(args);
         Server server = new Server(parser.getPort());
         server.runServer();
+
     }
 }

@@ -29,7 +29,7 @@ public class UsersRepositoryImpl extends JdbcTemplate implements UsersRepository
     @Override
     public User findById(Long id) {
         try {
-            return (User) super.queryForObject("SELECT * FROM sockets.userChat WHERE id=?", new BeanPropertyRowMapper(User.class), new Object[]{id});
+            return (User) super.queryForObject("SELECT * FROM sockets2.users WHERE id=?", new BeanPropertyRowMapper(User.class), new Object[]{id});
         } catch (Exception e) {
             return null;
         }
@@ -37,28 +37,28 @@ public class UsersRepositoryImpl extends JdbcTemplate implements UsersRepository
 
     @Override
     public List<User> findAll() {
-        return super.query("SELECT * FROM sockets.userChat", new BeanPropertyRowMapper(User.class));
+        return super.query("SELECT * FROM sockets2.users", new BeanPropertyRowMapper(User.class));
     }
 
     @Override
     public void save(User user) {
-        super.update("INSERT INTO sockets.userChat (login, password) VALUES (?, ?)", user.getLogin(), user.getPassword());
+        super.update("INSERT INTO sockets2.users (login, password) VALUES (?, ?)", user.getLogin(), user.getPassword());
     }
 
     @Override
     public void update(User user) {
-        super.update("UPDATE sockets.userChat SET login = ?, password = ? WHERE id=?", user.getLogin(), user.getPassword(), user.getId());
+        super.update("UPDATE sockets2.users SET login = ?, password = ? WHERE id=?", user.getLogin(), user.getPassword(), user.getId());
     }
 
     @Override
     public void delete(Long id) {
-        super.update("DELETE FROM sockets.userChat WHERE id=?", id);
+        super.update("DELETE FROM sockets2.users WHERE id=?", id);
     }
 
     @Override
     public Optional<User> findByLogin(String login) {
         try {
-            return Optional.of(Objects.requireNonNull(super.queryForObject("SELECT * FROM sockets.userChat WHERE login = ?",
+            return Optional.of(Objects.requireNonNull(super.queryForObject("SELECT * FROM sockets2.users WHERE login = ?",
                     (us, count) -> new User(us.getLong(1), us.getString(2), us.getString(3)), login)));
         } catch (Exception e) {
         }
